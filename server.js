@@ -12,12 +12,10 @@ app.get("/chocolate", (req, res) => {
   res.send(`I have ${amountQuery} chocolates`)
 })
 
-app.get("/node", (req, res) => {
-  res.send("Tennis Balls!")
-})
-
-app.get("/codeyourfuture", (req, res) => {
-  res.send("Is an awesome Community!")
+app.get("/multiply", (req, res) => {
+  let value1Query = req.query.value1
+  let value2Query = req.query.value2
+  res.send(`${value1Query * value2Query}`)
 })
 
 app.listen(3000, () => {
