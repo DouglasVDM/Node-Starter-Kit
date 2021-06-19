@@ -3,11 +3,13 @@ const app = express();
 
 
 app.get("/", (req, res) => {
-  res.send("Yay Node")
+  let searchQuery = req.query.search
+  res.send("Yay Node. You searched for "+ searchQuery)
 })
 
 app.get("/chocolate", (req, res) => {
-  res.send("Mmm Chocolate :0")
+  let amountQuery = req.query.amount
+  res.send(`I have ${amountQuery} chocolates`)
 })
 
 app.get("/node", (req, res) => {
