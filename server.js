@@ -8,14 +8,14 @@ app.get("/", (req, res) => {
 })
 
 app.get("/chocolate", (req, res) => {
-  let amountQuery = req.query.amount
-  res.send(`I have ${amountQuery} chocolates`)
+  let amount = req.query.amount
+  res.send(`I have ${amount} chocolates`)
 })
 
 app.get("/multiply", (req, res) => {
-  let value1Query = req.query.value1
-  let value2Query = req.query.value2
-  res.send(`${value1Query * value2Query}`)
+  let value1 = req.query.value1
+  let value2 = req.query.value2
+  res.send(`${value1 * value2}`)
 })
 
 app.listen(3000, () => {
