@@ -4,7 +4,10 @@ const app = express();
 
 app.get("/", (req, res) => {
   res.send("Yay Node")
-  console.log(req)
+})
+
+app.get("/chocolate", (req, res) => {
+  res.send("Mmm Chocolate :0")
 })
 
 app.listen(3000, () => {
