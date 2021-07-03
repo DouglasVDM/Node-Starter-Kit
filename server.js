@@ -41,6 +41,16 @@ app.post('/album', (req, res) => {
   
   res.send(albumsData);
 });
+ 
+app.delete('/album/:albumId', (req, res) => {
+  const deletedAlbum = req.params.albumId
+  
+  if (deletedAlbum) {
+    const filteredAlbum = albumsData.filter(album => album.albumId !== deletedAlbum);
+    res.status(200).send({ success: true }).json(filteredAlbum);
+};
+});
+
 
 app.listen(PORT, () => {
   console.log(`Server is listening at ${PORT}`);
