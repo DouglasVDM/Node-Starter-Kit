@@ -4,6 +4,9 @@ const app = express();
 const PORT = 5000;
 const albumsData = require('./albumsData');
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 app.get('/', (req, res) => {
   res.send("My name is Douglas");
 });
@@ -26,6 +29,17 @@ app.get('/album/:albumId', (req, res) => {
       msg: `No album with the id of ${albumId}`
     })
   };
+});
+
+app.post('/album', (req, res) => {
+  const newAlbum = {
+    "albumId": req.body.albumId,
+    "artistName":req.body.artistName
+  };
+
+  albumsData.push(newAlbum);
+  
+  res.send(albumsData);
 });
 
 app.listen(PORT, () => {
